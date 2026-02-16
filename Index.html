@@ -1,4 +1,454 @@
-<h1> hi! Eliana here! Thanks for visiting my personal website </h1>
-<div> <a href="https://www.ndconnect.app"> This is a community I built for neurodivergent professionals </a> </div> 
-<div> <a href="https://www.focuscity.co"> This is a whimsical virtual coworking space I'm building with my friends for fun </a> </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliana Bravos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Karla:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #faf7f2;
+            --sage: #9ca986;
+            --terracotta: #d4816f;
+            --navy: #2d3e50;
+            --butter: #f4e4c1;
+            --rose: #e8b4b8;
+            --forest: #4a5f4a;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Karla', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        /* Decorative Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(156, 169, 134, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(212, 129, 111, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(232, 180, 184, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            padding: 2.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--forest);
+            position: relative;
+        }
+
+        .logo::after {
+            content: '✿';
+            position: absolute;
+            right: -25px;
+            top: -8px;
+            font-size: 1.2rem;
+            color: var(--terracotta);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--navy);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a::before {
+            content: '~';
+            position: absolute;
+            left: -15px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: var(--sage);
+        }
+
+        nav a:hover {
+            color: var(--sage);
+        }
+
+        nav a:hover::before {
+            opacity: 1;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 2rem 5% 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projects-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-label::before,
+        .section-label::after {
+            content: '~';
+            position: absolute;
+            top: 0;
+            color: var(--terracotta);
+        }
+
+        .section-label::before {
+            left: -20px;
+        }
+
+        .section-label::after {
+            right: -20px;
+        }
+
+        .section-title {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 600;
+            color: var(--forest);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            position: relative;
+            aspect-ratio: 1;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 4px solid var(--butter);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-card:hover {
+            border-color: var(--rose);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Specific styling for FocusCity */
+        .project-card:nth-child(1) {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4e7f0 100%);
+        }
+
+        .project-card:nth-child(1) .project-image {
+            object-fit: contain;
+            padding: 2rem;
+        }
+
+        /* Specific styling for ND Connect */
+        .project-card:nth-child(2) {
+            background: #1a1a1a;
+        }
+
+        .project-card:nth-child(2) .project-image {
+            object-fit: contain;
+            padding: 3rem;
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+
+        .project-overlay h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .project-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, rgba(156, 169, 134, 0.15) 0%, rgba(232, 180, 184, 0.15) 100%);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, var(--rose) 2px, transparent 2px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            color: var(--navy);
+            opacity: 0.85;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--forest) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '✿ ✿ ✿ ✿ ✿';
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            opacity: 0.2;
+            letter-spacing: 4rem;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            transition: border-color 0.3s;
+        }
+
+        .contact a:hover {
+            border-color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 2.5rem 5%;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .footer-heart {
+            color: var(--rose);
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem 5%;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Eliana Bravos</div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <div class="projects-header">
+            <p class="section-label">Portfolio</p>
+            <h2 class="section-title">Current Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <a href="https://focuscity.co" target="_blank" class="project-card">
+                <img src="https://www.focuscity.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero-art-mobile.f4753a09.png&w=1920&q=75" 
+                     alt="FocusCity - A cozy online co-focusing space" 
+                     class="project-image"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML+='<div style=\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:3rem;\'>🦉</div>'">
+                <div class="project-overlay">
+                    <h3>FocusCity</h3>
+                    <p>A cozy online co-focusing space</p>
+                </div>
+            </a>
+            <a href="https://ndconnect.app" target="_blank" class="project-card">
+                <img src="https://www.ndconnect.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo_header_new.2b8368dc.png&w=256&q=75" 
+                     alt="ND Connect - Neurodivergent mentorship and community" 
+                     class="project-image"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML+='<div style=\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:3rem;\'>♾️</div>'">
+                <div class="project-overlay">
+                    <h3>ND Connect</h3>
+                    <p>Neurodivergent mentorship and community</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>About</h2>
+            <p>Founder and community builder passionate about prosocial and whimsical tech</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <h2>Contact</h2>
+            <a href="mailto:eliana.e.a.bravos@gmail.com">eliana.e.a.bravos@gmail.com</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with <span class="footer-heart">♥</span> by Eliana Bravos • © 2026</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
